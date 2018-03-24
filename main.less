@@ -10,19 +10,23 @@
 }
 
 .top {
-  background: #56CCF2;
   position: fixed;
+
   width: 100%;
-  z-index: 100;
-  height: 110px;
+  height: 100px;
+  z-index : 100;
+  transition: .23s;
+  
   .fi-label {
+    z-index : 100;
     padding: 10px 0px 30px 50px;
   }
   .search{
-    height: 65px;
+    z-index : 100;
+    height: 100px;
     background: #002456;
-    clip-path: polygon(0 0, 100% 0,100% 65%,0 100%);
-    font-size: 28px;
+    clip-path: polygon(0 0, 100% 0,100% 60%,0 100%);
+    font-size: 25pt;
   }
   .search-field {
     padding: 10px 30px 30px 0;
@@ -60,6 +64,106 @@
   display: inline-block;
   color: white;
 
+}
+
+ .hidden-menu {
+  display: block;
+  background-color : #56CCF2;
+  position: absolute;
+  list-style:none;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  
+  top : -120px;
+  transition: .23s;
+  z-index: 2;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+.hidden-menu-ticker {
+ display: none;
+}
+
+.hidden-menu ul{
+  z-index: inherit;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 90%;
+  width: 100%;
+}
+
+.hidden-menu li {
+  z-index:inherit;
+ float: left;
+ padding: 0;
+ width: 20%;
+ list-style: none;
+}
+
+.hidden-menu li a {
+ display: block;
+ margin: 0 10%;
+ padding: 140px 0;
+ color: white;
+ text-align: center;
+ text-decoration: none;
+ font-size: 150%;
+ z-index: inherit;
+}
+.hidden-menu li a:hover {
+ color: #002456;
+}
+.hidden-menu li a:active {
+ color: black;
+}
+
+
+.btn-menu {
+  color: #fff;
+  position : absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: .10s;
+  z-index: 2000;
+  width: 40px;
+  height:  40px;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.btn-menu span {
+  display: block;
+  height: 3px;
+  background-color: #fff;
+  margin: 10px 0 0;
+  transition: all .1s linear .10s;
+  position: relative;
+}
+.btn-menu span.first {
+  margin-top: 0;
+}
+
+.hidden-menu-ticker:checked ~ .hidden-menu {
+  display : block;
+  top : -40px;
+}
+
+.hidden-menu-ticker:checked ~ .btn-menu span.first {
+  -webkit-transform: rotate(45deg);
+  top : 13px;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.second {
+ opacity :0;
+
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.third {
+  -webkit-transform: rotate(-45deg);
+   top : -13px;
 }
 
 .menu {
